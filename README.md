@@ -1,36 +1,23 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 프론트엔드 배포 파이브라인
 
-## Getting Started
+## 배포 flow
 
-First, run the development server:
+![deploy flow](deploy.drawio.png)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+1. 기본적으로 `main` 브랜치에 `push`가 일어나면 workflow가 동작합니다.
+2. 정적으로 build `/out`폴더 내의 모든 파일이 s3에 업로드됩니다.
+3. cloudfront를 통해 서비스를 서빙 중입니다.
+   - `--paths "/*"`를 경로로 지정하여 캐시된 모든 파일을 무효화하고 최신 버전을 제공합니다.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 주요 링크
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- S3 버킷 웹사이트 엔드포인트: for-hanghae-fe-3rd
+- CloudFrount 배포 도메인 이름: d1x6ezuaiwwi4x
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 주요 개념
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- GitHub Actions과 CI/CD 도구: \***\*\_\*\***
+- S3와 스토리지: \***\*\_\*\***
+- CloudFront와 CDN: \***\*\_\*\***
+- 캐시 무효화(Cache Invalidation): \***\*\_\*\***
+- Repository secret과 환경변수: \***\*\_\*\***
