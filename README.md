@@ -59,3 +59,9 @@
 
 - 가까운 서버에서 캐싱된 데이터를 받아오기에 시간과 크기가 작다.
 - 같은 크기의 파일인 경우 -> CDN에서도 원본 파일을 그대로 사용하거나 압축이 적용되지 않은 파일
+
+## 기타
+
+- node 버전 20으로 변경
+- Node20을 사용하도록 강제할 예정입니다.
+- [github 업데이트 사항](https://github.blog/changelog/2024-03-07-github-actions-all-actions-will-run-on-node20-instead-of-node16-by-default/)
